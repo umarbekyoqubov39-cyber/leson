@@ -142,3 +142,17 @@ async function createTodo(todo) {
     console.log(error);
   }
 }
+searchInput.addEventListener("input", () => {
+  const q = searchInput.value.toLowerCase().trim();
+
+  const allItems = todoList.querySelectorAll(".todo-item");
+
+  allItems.forEach((li) => {
+    const title = li.querySelector(".todo-title").textContent.toLowerCase();
+    if (title.includes(q)) {
+      li.style.display = "";
+    } else {
+      li.style.display = "none";
+    }
+  });
+});
